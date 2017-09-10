@@ -1,0 +1,881 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
+body{
+  line-height: normal!important;
+}
+/* ========================================================================== */
+/* ALL */
+.scrollMenu{
+  margin-top: -50px;
+  width: 100%;
+  position: relative;
+  height: 50px;
+  z-index: -1;
+}
+#section_info, #section_storia, #section_ordina{
+  background-image: url(../images/menu/texture-carta.jpg)!important;
+}
+/* ========================================================================== */
+/* NAVIGATION*/
+.topnav{
+  overflow: hidden;
+}
+.topnav .icona{
+  display: none!important;
+}
+#nav{
+  background-color: #212121;
+  position: fixed;
+  left: 0;
+  top:0;
+  height: 50px;
+  width: 100%;
+  z-index: 100;
+  box-shadow: 0px 1px 5px rgba(0,0,0, 0.7);
+  padding: 0;
+}
+#nav {
+  font-family: 'Raleway';
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 1px;
+  font-size: 1.2em;
+}
+ul#nav *{
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+ul#nav .topmenu{
+  display: inline-block;
+  list-style: outside none none;
+  margin: 0 1.3em;
+  padding-top: 5px;
+}
+ul#nav .topmenu a{
+  padding: 0.5em 0.8em;
+  display: block;
+  color: rgba(255, 255, 255, 0.5);
+  position: relative;
+  text-decoration: none;
+}
+ul#nav li.topmenu a:before,
+ul#nav li.topmenu a:after {
+  height: 14px;
+  width: 14px;
+  position: absolute;
+  content: '';
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+  opacity: 0;
+}
+ul#nav li.topmenu a:before{
+  left: 0;
+  top: 0;
+  border-left: 3px solid #c0392b;
+  border-top: 3px solid #c0392b;
+  -webkit-transform: translate(100%, 50%);
+  transform: translate(100%, 50%);
+}
+ul#nav li.topmenu a:after {
+  right: 0;
+  bottom: 0;
+  border-right: 3px solid #c0392b;
+  border-bottom: 3px solid #c0392b;
+  -webkit-transform: translate(-100%, -50%);
+  transform: translate(-100%, -50%);
+}
+@media screen and (max-width: 844px){
+  ul#nav li.topmenu a{
+    z-index: 100;
+    display: inline-block;
+  }
+  ul#nav li.topmenu a:before{
+    left: 0;
+    top: 0;
+    border-left: 3px solid #c0392b;
+    border-top: 3px solid #c0392b;
+    -webkit-transform: translate(100%, 50%);
+    transform: translate(100%, 50%);
+  }
+  ul#nav li.topmenu a:after {
+    right: 0;
+    bottom: 0;
+    border-right: 3px solid #c0392b;
+    border-bottom: 3px solid #c0392b;
+    -webkit-transform: translate(-100%, -50%);
+    transform: translate(-100%, -50%);
+  }
+}
+ul#nav li.topmenu a:hover,
+ul#nav li.topmenu a.active {
+  color: #ffffff;
+}
+ul#nav li.topmenu a:hover:before,
+ul#nav li.topmenu a.active:before,
+ul#nav li.topmenu a:hover:after,
+ul#nav li.topmenu a.active:after {
+  -webkit-transform: translate(0%, 0%);
+  transform: translate(0%, 0%);
+  opacity: 1;
+}
+#linee{
+  display: none;
+  height: 5;
+  width: auto;
+}
+#linee a{
+  padding: 10 16 10 0;
+  padding-right: 16px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  font-size: 1.3em!important;
+  position: absolute;
+  right: 0;
+  top:0;
+  cursor: hand;
+  z-index: 1000;
+}
+#logo{
+  display: none;
+}
+@media screen and (max-width: 875px) {
+  .topnav .topmenu a {
+    display: none!important;
+  }
+  #nav .topmenu{
+    margin: auto!important;
+  }
+  .topnav a.icona{
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: block!important;
+  }
+  #linee{
+    display: block;
+  }
+  #logo{
+    display: block;
+    position: absolute;
+    height: 46;
+    margin: 2 0 2 10;
+    width: auto;
+    left: 0;
+    top: 0;
+  }
+}
+@media screen and (max-width: 844px) {
+  .topnavresponsive {position: relative;}
+  .topnavresponsive .icona {
+    position: absolute!important;
+    right: 0;
+    top: 0!important;
+  }
+  .topnavresponsive ul#nav li {
+    float: none;
+    display: block!important;
+    text-align: center;
+  }
+  .topnavresponsive #nav{
+    height: auto;
+  }
+}
+
+/* ========================================================================== */
+/* HOME */
+#parallax_pizza{
+  background-image: url("../images/home/pizzaTMP.jpg");
+}
+.parallax{
+  height: 100vh;
+  width: 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#logoZac{
+  margin-right: auto;
+  margin-left: auto;
+  width: 800;
+  top:30%;
+  position: relative;
+  display: block;
+}
+
+@media screen and (max-width: 1000px){
+  #logoZac{
+    width: 650;
+  }
+}
+@media screen and (max-width: 700px){
+  #logoZac{
+    top:25%;
+    width: 500;
+  }
+}
+@media screen and (max-width: 550px){
+  #logoZac{
+    top:18%;
+    width: 350;
+  }
+}
+@media screen and (max-width: 350px){
+  #logoZac{
+    top:18%;
+    width: 250;
+  }
+}
+#contenitoreMobile{
+  display: none;
+  position: relative;
+  text-align: center;
+  margin-top: 160;
+}
+@media screen and (max-width: 415px){
+  #contenitoreMobile{
+    display: block;
+  }
+}
+.contenutoMobile{
+  position: relative;
+  display: inline-block;
+  width: 33vw;
+  height: auto;
+  margin-bottom: 4;
+  border-radius: 30px;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3);
+}
+.contenutoMobile#menu::after, .contenutoMobile#dove_siamo::after{
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+.contenutoMobile h3{
+  position: absolute;
+  width: 100%;
+  font-size: 2.6em;
+  color: white;
+  z-index: 20;
+  bottom: 0;
+  top:23%;
+}
+.contenutoMobile img{
+  border-radius: 30px;
+}
+.contenutoMobile#menu img{
+  width: 100%;
+  height: auto;
+}
+.contenutoMobile#dove_siamo img{
+  width: 100%;
+  height: auto;
+}
+.contenutoMobile #justeatLogo{
+  width: 100%;
+  height: auto;
+}
+.contenutoMobile#facebookHome{
+  background-color: #475993;
+  padding: 2vw;
+}
+.contenutoMobile#facebookHome img{
+  height: 29vw;
+}
+/* ========================================================================== */
+/* STORIA */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+#section_storia{
+  font-family: "Open Sans";
+  margin: auto;
+  height: 100vh;
+  background: #fbfbfb;
+  margin-top: 50px!important;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 100;
+}
+
+@media screen and (max-width: 1100px) {
+  #section_storia{
+    font-family: "Open Sans";
+    margin: auto;
+    height: auto;
+  }
+  .col-md-4{
+    width: 100%!important;
+  }
+}
+#section_storia p{
+  margin-bottom: 5px!important;
+}
+.titolo_pagina{
+  font-family: "Open Sans";
+  font-size: 2.5em;
+  font-weight: 300;
+  line-height: 41px;
+  letter-spacing: normal;
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 40px;
+  margin-bottom: 30px;
+  color: rgb(68,68,68);
+}
+h3.titolo_pagina:after {
+  display: block;
+  content: "";
+  height: 1px;
+  width: 100px;
+  margin: 15px auto 20px;
+  position: relative;
+  background: #c0392b;
+}
+.titolo_div{
+  color: rgb(51, 51, 51);
+  font-size: 1.6em;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: .36px;
+  margin-left: 47px;
+}
+.descrizione_div p{
+  margin-top: 3px;
+  color: #333538;
+  font-size: 1.1em;
+  line-height: 1.42857;
+  margin-left: 47px;
+}
+#descrizione_storia{
+  margin-top: 60px;
+  text-align:left;
+}
+@media screen and (max-width: 992px) {
+  .descrizione_div p{
+    font-size: 1.0em!important;
+  }
+  #descrizione_storia{
+    margin-top: 25px;
+
+  }
+  #descrizione_storia p{
+    margin:auto;
+    font-size: 1.0em!important;
+  }
+}
+#descrizione_storia p{
+  margin-left: 0px!important;
+}
+
+.icona_div{
+  height: 60px;
+  width: 60px;
+  position: absolute;
+  left: -5px;
+  top: 10px;
+}
+#vasta_scelta, #mangia_sorriso, #consegna_domicilio{
+  display: block;
+  position: relative;
+}
+#vasta_scelta, #mangia_sorriso{
+  margin-bottom: 35px;
+}
+#foto_storia img{
+  width: 100%;
+  max-width: 400px;
+  margin:auto;
+}
+
+
+/* ========================================================================== */
+/* MENU */
+#section_menu{
+  height: 100vh;
+  max-width: 1200px!important;
+  z-index: 1;
+  margin-top: 120px!important;
+  display: block;
+  padding-right: 30px;
+  padding-left: 30px;
+}
+.elementi-menu{
+  padding-left: 20;
+  padding-right: 20;
+}
+#categoria-menu ul{
+  margin-top: 1.5em;
+  list-style: none;
+  display: block;
+}
+#categoria-menu ul li{
+  display: inline-block;
+}
+#categoria-menu ul li a{
+  width: 80px;
+  height: 80px;
+  cursor: hand;
+  margin-right: 30px;
+}
+@media screen and (max-width: 640px){
+  #categoria-menu ul li a{
+    width: 72px;
+    height: 72px;
+    cursor: hand;
+    margin-right: 20px;
+  }
+  #categoria-menu ul li a #bibite-icon{
+    margin-right: 0!important;
+  }
+  #categoria-menu ul li a{
+    margin-left: -20;
+  }
+  #categoria-panino .titolo-categoria{
+    left:0!important;
+  }
+  #fritto.titolo-categoria{
+    left:0!important;
+  }
+  #categoria-bibite .titolo-categoria{
+    left:0!important;
+  }
+  #section_menu{
+    margin-top: 70!important;
+  }
+}
+@media screen and (max-width: 695px){
+  .colonna .titolo{
+    font-size: 16px!important;
+  }
+}
+@media screen and (max-width: 400px){
+  #section_menu{
+    padding-right: 0!important;
+    padding-left: 10!important;
+  }
+  #categoria-menu ul li a{
+    width: 63px!important;
+    height: 63px!important;
+  }
+  .titolo-categoria{
+    font-size: 25px!important;
+  }
+  #section_menu .responsive{
+    height: 400!important;
+  }
+  .colonna .titolo{
+    font-size: 15px!important;
+    line-height: 15px!important;
+  }
+  .colonna{
+    height: 5em!important;
+  }
+  .slick-next{
+    right: 0!important;
+  }
+  .slick-prev{
+    left: -10!important;
+  }
+}
+#pizza-icon{
+  background-image: url(../images/menu/iconeMenu/pizza.svg);
+  display: block;
+  transition: all 0.35s ease;
+}
+#panino-icon{
+  background-image: url(../images/menu/iconeMenu/burger.svg);
+  display: block;
+  transition: all 0.35s ease;
+}
+#fritto-icon{
+  background-image: url(../images/menu/iconeMenu/fries.svg);
+  display: block;
+  transition: all 0.35s ease;
+}
+#bibite-icon{
+  background-image: url(../images/menu/iconeMenu/coke.svg);
+  display: block;
+  transition: all 0.35s ease;
+}
+#pizza-icon.active{
+  background-image: url(../images/menu/iconeMenu/pizzaC.svg);
+  display: block;
+}
+#panino-icon.active{
+  background-image: url(../images/menu/iconeMenu/burgerC.svg);
+  display: block;
+}
+#fritto-icon.active{
+  background-image: url(../images/menu/iconeMenu/friesC.svg);
+  display: block;
+}
+#bibite-icon.active{
+  background-image: url(../images/menu/iconeMenu/cokeC.svg);
+  display: block;
+}
+#section_menu .responsive{
+  margin: auto;
+  display: none!important;
+  max-width: 1200px!important;
+  height: 500px;
+}
+#section_menu .responsive.active{
+  display: block!important;
+}
+#section_menu{
+  margin: auto;
+}
+.slick-slide {
+  &:focus, a {
+    outline: none;
+  }
+}
+.slick-slide, .slick-slide *{ outline: none !important; }
+.riga{
+  width: 360px;
+  margin: auto;
+}
+
+
+.colonna{
+  width: 95%;/*cambiare*/
+  height: 6em;/*abbassare mobile */
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.titolo-categoria{
+  font-size: 31px;
+  text-transform: uppercase;
+  font-weight: 400;
+  line-height: 30px;
+  color: rgb(77,77,77);
+  margin-top: -3px;
+  margin-bottom: 15px;
+}
+#categoria-panino .titolo-categoria{
+  left:145;
+  display: block;
+  position: relative;
+}
+#fritto.titolo-categoria{
+  left:210;
+  display: block;
+  position: relative;
+}
+#categoria-bibite .titolo-categoria{
+  left:368;
+  position: relative;
+  display: block;
+}
+.invisibile{
+  height: 30px;
+}
+@media screen and (max-width: 992px){
+  .titolo-categoria{
+    margin-bottom: 0;
+  }
+}
+@media screen and (max-width: 650px){
+  .titolo-categoria{
+    margin-bottom: 0;
+  }
+  .invisibile{
+    height: 0px;
+  }
+}
+@media screen and (max-width: 650px){
+  .vuoto{
+    display: none!important;
+  }
+}
+.colonna .titolo{
+  color: rgb(77,77,77);
+  display: block;
+  text-transform: uppercase;
+  margin-bottom: .2em;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 23.8px;
+
+}
+.colonna .prezzo{
+  color: #B5272D;
+  position: relative;
+}
+/*TMP*/
+#categoria-pizza .colonna .prezzo:hover::after{
+  content: 'NORMALE';
+  color: rgba(77,77,77, 0.9);
+  font-size: 10px;
+  bottom: 16px;
+  position: absolute;
+  left: 0;
+}
+.colonna .descrizione{
+  margin: 0;
+  display: block;
+  color: #4d4d4d;
+  font-size: 14px;
+}
+.colonna .prezzo.piccola,
+.colonna .prezzo.grande{
+    position: relative;
+}
+.colonna .prezzo.grande{
+  margin-left: 20;
+}
+.colonna .prezzo.piccola:before, .colonna .prezzo.grande:before{
+  color: rgba(77,77,77, 0.9);
+  font-size: 12px;
+  bottom: 16px;
+  position: absolute;
+}
+.colonna .prezzo.piccola:before{
+  content: '0,33cl';
+  left: 6;
+}
+.colonna .prezzo.grande:before{
+  content: '0,50cl';
+  left: 1;
+}
+
+
+/* ========================================================================== */
+/* ORDINA */
+#section_ordina{
+  padding-top: 100px;
+  height: 100vh;
+  position: relative;
+}
+.ordina_images{
+  width: 250;
+  height: auto;
+  margin: auto;
+  position: relative;
+}
+.card{
+  background: white!important;
+  display: inline-block!important;
+  width: 250!important;
+  border: none!important;
+  box-shadow: 1px 4px 13px rgba(0, 0, 0, 0.5);
+  transform: scale(1);
+  transition: all 0.3s ease;
+}
+.card:hover{
+  transform: scale(1.1);
+  box-shadow: 5px 8px 13px rgba(0, 0, 0, 0.5);
+}
+.ordina_images img{
+  width: 100%;
+}
+.card-title, .card-text{
+  text-align: left;
+}
+@media screen and (max-width: 740px){
+  #section_ordina{
+    height: auto!important;
+  }
+}
+#just_eat{
+  margin-right: 30;
+}
+#scooter{
+  margin-left: 30;
+}
+@media screen and (max-width: 767px){
+  #just_eat, #scooter{
+    margin-right: 0!important;
+    margin-left: 0!important;
+  }
+}
+
+/* ========================================================================== */
+/* INFO */
+#section_info{
+  margin-top: 50px;
+  height: 100vh;
+}
+
+@media screen and (max-width: 992px){
+  #section_info{
+    margin-top: 0!important;
+    height: auto!important;
+  }
+  #mappa{
+    padding-top: 50!important;
+    margin-bottom: 100;
+  }
+}
+#orario, #mappa{
+  padding-top: 100;
+}
+#orario > div{
+  width: 100%;
+  margin: auto;
+  padding-left: 5;
+  padding-right: 5;
+  padding-bottom: 10;
+  border-radius: 15px;
+  background-color: #f2f2f2;
+}
+#orario > div > img#clock{
+  width: 100;
+  height: auto;
+  margin: auto;
+  display: block;
+  bottom: 35;
+  position: relative;
+}
+#giorni, #ora{
+  display: inline-block;
+  font-size: 1.3em!important;
+  text-align: left;
+}
+#giorni p, #ora p{
+  height: 28px!important;
+}
+@media screen and (max-width: 1010px){
+  #giorni, #ora{
+    font-size: 1em!important;
+  }
+  #giorni p, #ora p{
+    height: 26px!important;
+  }
+  #contenitoreOrari{
+    width: 100%!important;
+  }
+}
+@media screen and (max-width: 426px){
+  #giorni, #ora{
+    font-size: .9em!important;
+  }
+  #giorni p, #ora p{
+    height: 23px!important;
+  }
+}
+#contenitoreOrari{
+  text-align: center;
+}
+#giorni{
+  font-weight: bold;
+  text-transform: uppercase;
+}
+#ora{
+  margin-left: 10;
+}
+#aperto, #chiuso{
+  position: relative;
+  margin: auto;
+  width: 150;
+  display: none;
+}
+#aperto.active, #chiuso.active{
+  display: block!important;
+}
+/* ========================================================================== */
+/* FOOTER */
+#footer_container{
+  background-color: #212121;
+  width: 100%;
+  display: block;
+}
+#footer_content{
+  padding: 20 0 10;
+  position: relative;
+  text-align: center;
+}
+#num_telefono{
+  margin: auto;
+  display: inline-block;
+  position: relative;
+  height: 45;
+  text-align: center;
+  margin-right: 20;
+}
+#num_telefono img{
+  width: auto;
+  height: 35;
+  display: inline-block;
+  position: relative;
+  margin-bottom: 10px;
+  margin-right: 5px;
+}
+#num_telefono a{
+  color: white;
+  font-size: 1.5em;
+  text-decoration: none;
+  cursor: hand;
+  display: inline-block;
+}
+#indirizzo{
+  text-align: center;
+  margin-top: 5;
+  display: inline-block;
+}
+#indirizzo img{
+  width: auto;
+  height: 40;
+  display: inline-block;
+  position: relative;
+  margin-bottom: 10px;
+  margin-right: 5px;
+}
+#indirizzo h3{
+  display: inline-block;
+  position: relative;
+  color: white;
+  font-size: 1.3em;
+}
+#map_footer{
+  margin-top: 20;
+}
+/*SOCIAL MEDIA BUTTON*/
+#social_media_button{
+  text-align: center;
+  margin-top: 30;
+}
+.rotate_container{
+  width: 80;
+  height: 80;
+  transition: all 0.5s ease;
+  display: inline-block;
+  margin: 0 3 0 3;
+}
+.rotate_container img{
+  width: 80;
+  height: 80;
+  padding: 8 8 8 8;
+}
+#justeat{display: inline-block;}
+.rotate_container#facebook{
+  background-color: #475993;
+}
+.rotate_container#tripadvisor{
+  background-color: #57923e;
+}
+.rotate_container:hover{
+  transform: rotate(360deg);
+  border-radius: 100px;
+}
+@media screen and (max-width: 800px){
+  .rotate_container{
+    border-radius: 100px;
+  }
+}
+#copyright{
+  color: white;
+  margin-top: 20;
+}

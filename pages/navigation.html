@@ -1,0 +1,66 @@
+<html>
+  <head>
+    <!-- META TAG -->
+    <title>Pizzeria Zac e Tac</title>
+    <meta name="viewport" content="initial-scale=1"/>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Pizzeria Zac e Tac">
+    <meta name="author" content="Paolo Tasin">
+    <meta name="keywords" content="Zac e Tac, pizzeria, Trento">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- LINK -->
+    <link rel="stylesheet" type="text/css" href="../style/style.css">
+    <!-- jquery-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- bootstrap -->
+
+    <!-- ANIMAZIONI -->
+    <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+  </head>
+  <script>
+  //NAV RESPONSIVE
+  function nav() {
+    var x = document.getElementById("navbar");
+    console.log(x);
+    if (x.className === "topnav") {
+      x.className += "responsive";
+    } else {
+      x.className = "topnav";
+    }
+  }
+  $(document).ready(function ($) {
+    var url = window.location.href;
+    var activePage = url;
+    $('#nav a').each(function () {
+        var linkPage = this.href;
+
+        if (activePage == linkPage) {
+            $(this).addClass("active");
+        }
+    });
+  });
+  </script>
+  <body>
+    <!-- ####################################################################-->
+    <!-- NAVIGATION -->
+    <nav class="topnav" id="navbar">
+      <ul id="nav">
+        <a href="home.php"><img id="logo" src="../images/navigation/Logo-Zac-e-TacB.svg"></a>
+        <li class="topmenu"><a href="home.php">Home</a></li>
+        <li class="topmenu"><a href="storia.php">La nostra storia</a></li>
+        <li class="topmenu"><a href="menu.php">Menu</a></li>
+        <li class="topmenu"><a href="ordina.php">Ordina</a></li>
+        <li class="topmenu"><a href="info.php">Info</a></li>
+        <li id="linee"><a class="icona" onclick="nav()">&#9776;</a></li>
+      </ul>
+    </nav>
+  </body>
+</html>

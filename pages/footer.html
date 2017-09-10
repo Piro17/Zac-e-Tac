@@ -1,0 +1,64 @@
+
+<head>
+  <script>
+  //MAP
+  function myMap() {
+    var contentString =
+    '<div class="popup">'+
+      '<h2 style="border-bottom: #ef645e solid 1px" id="zac e Tac">Zac e Tac</h2>'+
+      '<p><b>via Ezio Maccani, 36 Trento</b></p>'+
+      '<p><b>Tel: </b>0461 093777</p>'+
+    '</div>';
+
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString,
+      maxWidth: 230,
+      maxHeight: 300,
+    });
+
+    var mapCanvas = document.getElementById("map_footer");
+    var myCenter = new google.maps.LatLng(46.081993,11.115949);
+    var mapOptions = {center: myCenter, zoom: 17};
+    var map = new google.maps.Map(mapCanvas,mapOptions);
+    var marker = new google.maps.Marker({
+      position: myCenter,
+      map: map,
+      title: 'Zac e Tac'
+    });
+    google.maps.event.addListener(marker, 'click', function() {
+      infowindow.open(map,marker);
+    });
+          setTimeout(function(){ infowindow.open(map,marker);}, 1000);
+  }
+  </script>
+</head>
+<footer id="footer_container">
+  <div class="container">
+    <div id="footer_content">
+      <div id="num_telefono">
+        <img src="../images/footer/phone.svg">
+        <a>0461 093777</a>
+      </div>
+      <div id="indirizzo">
+        <img src="../images/footer/map-location.svg">
+        <h3>via Ezio Maccani, 36 Trento</h3>
+      </div>
+      <div id="map_footer" style="width:100%;height:300px;"></div>
+
+      <div id="social_media_button">
+        <div class="rotate_container" id="facebook">
+          <a href="https://www.facebook.com/PizzeriaZacETac/"><img src="../images/footer/facebook-logo.svg"></a>
+        </div>
+        <div id="justeat">
+          <a href="https://www.justeat.it/restaurants-pizzeriazacetac/menu"><img class="rotate_container" src="../images/ordina/just_eat_logo.png"></a>
+        </div>
+        <div class="rotate_container" id="tripadvisor">
+          <a href=""><img src="../images/footer/tripadvisor.png"></a>
+        </div>
+      </div>
+
+      <p id="copyright">Copyright © 2017 Paolo Tasin ®</p>
+    </div>
+  </div>
+</footer>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBW77IAmTY5jobCLwzv_t0KvquLIBp4WaY&callback=myMap" async defer></script>

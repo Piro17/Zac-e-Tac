@@ -1,0 +1,607 @@
+<html>
+  <head>
+    <!-- META TAG -->
+    <title>Pizzeria Zac e Tac</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Pizzeria Zac e Tac">
+    <meta name="author" content="Paolo Tasin">
+    <meta name="keywords" content="Zac e Tac, pizzeria, Trento">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- LINK -->
+    <link rel="stylesheet" type="text/css" href="../style/style.css">
+    <!-- SLIDE -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.7.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.7.1/slick/slick-theme.css"/>
+    <!-- jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- map -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBW77IAmTY5jobCLwzv_t0KvquLIBp4WaY&callback=myMap" async defer></script>
+    <!-- ANIMAZIONI -->
+    <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+
+    <script>
+
+
+      //NAV RESPONSIVE
+      function nav() {
+        var x = document.getElementById("navbar");
+        if (x.className === "topnav") {
+          x.className += "responsive";
+        } else {
+          x.className = "topnav";
+        }
+      }
+
+      //MAP
+      function myMap() {
+        var mapCanvas = document.getElementById("map");
+        var myCenter = new google.maps.LatLng(46.081993,11.115949);
+        var mapOptions = {center: myCenter, zoom: 17};
+        var map = new google.maps.Map(mapCanvas,mapOptions);
+        var marker = new google.maps.Marker({
+          position: myCenter,
+          animation: google.maps.Animation.BOUNCE
+        });
+        marker.setMap(map);
+      }
+
+      $(document).ready(function () {
+        $('#prova').load('prova/index.html');
+        //refresh position doesn't work
+        onScroll();
+
+        //click navigation scroll
+        $(document).on("scroll", onScroll);
+        $('a[href^="#scroll"]').on('click', function (e) {
+          e.preventDefault();
+          $(document).off("scroll");
+          var target = this.hash,
+          menu = target;
+          $target = $(target);
+          var position = $target.offset().top;
+          $('html, body').stop().animate({
+            'scrollTop':position
+          }, 600, 'swing', function () {
+            window.location.hash = target;
+            $(document).on("scroll", onScroll);
+          });
+        });
+
+        //click navigation active
+        $('#nav li a').on('click', function (e) {
+          $('#nav li a').each(function () {
+              $(this).removeClass('active');
+          })
+          $(this).addClass('active');
+          });
+
+        //scroll detect and changes menu
+        function onScroll(event){
+          var scrollPos = $(document).scrollTop();
+          $('#navbar li.topmenu a').each(function () {
+              var currLink = $(this);
+              var refElement = $(currLink.attr("href"));
+            if (refElement.position().top-60 <= scrollPos && refElement.position().top + refElement.next().height() >= scrollPos){
+              $('#navbar li a').removeClass("active");
+              currLink.addClass("active");
+            }
+            else{
+              currLink.removeClass("active");
+            }
+          });
+        }
+        //click categories menu active
+        $('#categoria-menu li a').on('click', function (e) {
+          e.preventDefault();
+          $('#categoria-menu li a').each(function () {
+              var currLink = $(this);
+              var refElement = $(currLink.attr("href"));
+              refElement.removeClass('active');
+              $(this).removeClass('active');
+          })
+            var currLink = $(this);
+            var refElement = $(currLink.attr("href"));
+            refElement.addClass('active');
+            $(this).addClass('active');
+            $('.single-item.active').slick({
+              dots: true,
+              infinite: true,
+              speed: 500,
+              slidesToShow: 1,
+              slidesToScroll: 1
+            });
+          });
+        });
+    </script>
+  </head>
+
+  <body>
+    <!-- ####################################################################-->
+    <!-- NAVIGATION -->
+    <nav class="topnav " id="navbar" data-offset="60">
+      <ul id="nav">
+        <li class="topmenu"><a href="#scrollHome">Home</a></li>
+        <li class="topmenu"><a href="#scrollStoria">La nostra storia</a></li>
+        <li class="topmenu"><a href="#scrollMenu">Menu</a></li>
+        <li class="topmenu"><a href="#scrollOrdina">Ordina</a></li>
+        <li class="topmenu"><a href="#scrollInfo">Info</a></li>
+        <li id="linee"><a class="icona" onclick="nav()">&#9776;</a></li>
+      </ul>
+    </nav>
+
+    <!-- ####################################################################-->
+    <!-- HOME -->
+    <div id="scrollHome" class="scrollMenu"></div>
+    <section id="section_home">
+      <div class="parallax" id="parallax_pizza"><img src="images/logosbagliato.jpg" style="width:300px; margin:auto; position: relative; margin-top:600px;"></div>
+    </section>
+
+    <!-- ####################################################################-->
+    <!-- STORIA  -->
+    <div id="scrollStoria" class="scrollMenu"></div>
+    <section id="section_storia">
+      <div class="container">
+        <div class="row">
+          <h3 class="titolo_pagina">La qualità vince sempre</h3>
+          <div class="col-md-4 col-sm-12" id="vasta_scelta">
+            <img data-aos="fade-right" data-aos-offset="300px" src="svg/restaurant.svg" class="icona_div">
+            <h5 class="titolo_div">Vasta scelta</h5>
+            <div class="descrizione_div">
+              <p>La nostra cucina offre la migliore pizza croccante e sottile.</p>
+              <p style="margin-bottom: -3px!important; margin-top:10px;"><i>La pizza non fa per te?</i><p>
+              <p>Zac e Tac offre anche rosticceria meridionale, degustazione di piatti caraibici e tortillas.</p>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-12" id="mangia_sorriso">
+            <img data-aos="fade-right"  data-aos-offset="300px" src="svg/happy.svg" class="icona_div">
+            <h5 class="titolo_div">Mangia con il sorriso</h5>
+            <div class="descrizione_div">
+              <p>Il nostro personale la farà sentire come a casa.</p>
+              <p>Vieni da Zac e Tac se vuoi mangiare con il sorriso.</p>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-12" id="consegna_domicilio">
+            <img data-aos="fade-right" data-aos-offset="300px" src="svg/ico_delivery.svg" class="icona_div">
+            <h5 class="titolo_div">Consegna a domicilio</h5>
+            <div class="descrizione_div">
+              <p>Consegna a domicilio tutti i giorni dalle 18 alle 22 (2.00€)</p>
+              <p>Per ordini superiori a 15.00€ la consegna è gratuita!</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-4 col-sm-12 descrizione_div" id="descrizione_storia">
+            <p>
+              Zac e Tac nasce nel 2004 e in questo testo dovrebbe
+              esserci una breve descrizione di come è nata la pizzeria.
+            </p>
+            <p>
+              Ogni pizza che viene servita è realizzata con cura dai nostri pizzaioli.
+              Gli ingredienti che vengono utilizzati sono di alta qualità e freschi.
+              L'impasto per la pizza è appositamente creato dai nostri pizzaioli.
+            </p>
+          </div>
+
+          <div class="col-md-4 col-sm-12" id="foto_storia">
+            <img src="images/cojons.jpg">
+          </div>
+          <div class="col-md-2">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ####################################################################-->
+    <!-- MENU -->
+    <div id="scrollMenu" class="scrollMenu"></div>
+    <section id="section_menu">
+      <div class="container">
+        <h3 class="titolo_pagina">Menù</h3>
+
+        <nav id="categoria-menu">
+          <ul>
+            <li><a id="pizza-icon" class="active" href="#categoria-pizza"></a></li>
+            <li><a id="panino-icon" href="#categoria-panino"></a></li>
+            <li><a id="fritto-icon" href="#categoria-fritto"></a></li>
+            <li><a id="bibite-icon" href="#categoria-bibite"></a></li>
+          </ul>
+        </nav>
+
+        <div class="elementi-menu">
+          <!-- PIZZA -->
+          <div class="single-item active" id="categoria-pizza">
+            <!--1 PIZZA-->
+            <div>
+              <div class="titolo-categoria">Pizze classiche</div>
+
+              <div class="riga">
+                  <div class="colonna">
+                    <h3 class="titolo">1. marinara<span class="prezzo"> 4,40€</span></h3>
+                    <p class="descrizione">Pomodoro - Aglio - Origano</p>
+                  </div>
+                  <div class="colonna">
+                    <h3 class="titolo">2. napoli<span class="prezzo"> 5,50€</span></h3>
+                    <p class="descrizione">Pomodoro - Mozzarella - Acciughe - Origano</p>
+                  </div>
+                  <div class="colonna">
+                    <h3 class="titolo">3. margherita<span class="prezzo"> 5,00€</span></h3>
+                    <p class="descrizione">Pomodoro - Mozzarella</p>
+                  </div>
+              </div>
+
+              <div class="riga">
+                  <div class="colonna">
+                    <h3 class="titolo">4. pioggia<span class="prezzo"> 5,50€</span></h3>
+                    <p class="descrizione">Pomodoro - Doppia mozzarella</p>
+                  </div>
+                  <div class="colonna">
+                    <h3 class="titolo">5. viennese<span class="prezzo"> 6,00€</span></h3>
+                    <p class="descrizione">Pomodoro - Mozzarella -  W&uuml;rstel</p>
+                  </div>
+                  <div class="colonna">
+                    <h3 class="titolo">6. prataiola<span class="prezzo"> 6,50€</span></h3>
+                    <p class="descrizione">Pomodoro - Mozzarella - Pomodorini - Funghi - Aglio - Origano</p>
+                  </div>
+              </div>
+
+              <div class="riga">
+                  <div class="colonna">
+                    <h3 class="titolo">7. romana<span class="prezzo"> 6,00€</span></h3>
+                    <p class="descrizione">Pomodoro - Mozzarella - Acciughe - Capperi - Origano</p>
+                  </div>
+                  <div class="colonna">
+                    <h3 class="titolo">8. tonno e cipolle<span class="prezzo"> 6,50€</span></h3>
+                    <p class="descrizione">Pomodoro - Mozzarella - Tonno - Cipolle</p>
+                  </div>
+                  <div class="colonna">
+                    <h3 class="titolo">9. prosciutto e funghi<span class="prezzo"> 6,50€</span></h3>
+                    <p class="descrizione">Pomodoro - Mozzarella - Prosciutto - Funghi</p>
+                  </div>
+              </div>
+
+              <div class="riga">
+                  <div class="colonna">
+                    <h3 class="titolo">10. diavola<span class="prezzo"> 6,50€</span></h3>
+                    <p class="descrizione">Pomodoro - Mozzarella - Salamino piccante</p>
+                  </div>
+                  <div class="colonna">
+                    <h3 class="titolo">11. crudo e rucola<span class="prezzo"> 6,80€</span></h3>
+                    <p class="descrizione">Pomodoro - Mozzarella - Crudo - Rucola</p>
+                  </div>
+                  <div class="colonna">
+                    <h3 class="titolo">12. capricciosa<span class="prezzo"> 6,80€</span></h3>
+                    <p class="descrizione">Pomodoro - Mozzarella - Prosciutto - Carciofi - Funghi</p>
+                  </div>
+              </div>
+
+              <div class="riga">
+                  <div class="colonna">
+                    <h3 class="titolo">13. 4 stagioni<span class="prezzo"> 6,80€</span></h3>
+                    <p class="descrizione">Pomodoro - Mozzarella - Prosciutto - Carciofi - Funghi - Olive</p>
+                  </div>
+                  <div class="colonna">
+                    <h3 class="titolo">14. verdure<span class="prezzo"> 6,00€</span></h3>
+                    <p class="descrizione">Pomodoro - Mozzarella - Melanzane - Zucchine - Peperoni - Pomodorini</p>
+                  </div>
+                  <div class="colonna">
+                    <h3 class="titolo">15. calzone<span class="prezzo"> 6,80€</span></h3>
+                    <p class="descrizione">Pomodoro - Mozzarella - Prosciutto - Funghi - Ricotta</p>
+                  </div>
+              </div>
+            </div>
+            <!--2 PIZZA-->
+            <div>
+              <div class="riga">
+                <div class="titolo-categoria">Pizze Bianche</div>
+                  <div class="colonna">
+                    <h3 class="titolo">16. calabrese<span class="prezzo"> 4,80€</span></h3>
+                    <p class="descrizione">Doppia mozzarella - Aglio - Peperoncino</p>
+                  </div>
+                  <div class="colonna">
+                    <h3 class="titolo">17. gamberetti<span class="prezzo"> 7,00€</span></h3>
+                    <p class="descrizione">Mozzarella - Aglio - Gamberetti - Rucola</p>
+                  </div>
+                  <div class="colonna">
+                    <h3 class="titolo">18. ai formaggi<span class="prezzo"> 6,80€</span></h3>
+                    <p class="descrizione">Mozzarella - Formaggi vari</p>
+                  </div>
+              </div>
+
+              <div class="riga">
+                  <div class="colonna">
+                    <h3 class="titolo">19. carbonara<span class="prezzo"> 7,00€</span></h3>
+                    <p class="descrizione">Pomodoro - Doppia mozzarella</p>
+                  </div>
+                  <div class="colonna">
+                    <h3 class="titolo">20. inverno<span class="prezzo"> 6,80€</span></h3>
+                    <p class="descrizione">Mozzarella - Aglio - Patate - Pancetta - Grana</p>
+                  </div>
+                  <div class="colonna">
+                    <h3 class="titolo">21. mario<span class="prezzo"> 7,00€</span></h3>
+                    <p class="descrizione">Mozzarella - Aglio - Scamorza - Peperoncino - Pancetta - Grana</p>
+                  </div>
+              </div>
+
+              <div class="riga">
+                  <div class="colonna">
+                    <h3 class="titolo">22. gustosa<span class="prezzo"> 6,80€</span></h3>
+                    <p class="descrizione">Mozzarella - Gorgonzola - Porro - Pomodorini</p>
+                  </div>
+                  <div class="colonna">
+                    <h3 class="titolo">23. delicata<span class="prezzo"> 7,00€</span></h3>
+                    <p class="descrizione">Mozzarella - Brie - Rucola - Crudo</p>
+                  </div>
+                  <div class="colonna">
+                    <h3 class="titolo">24. alpina<span class="prezzo"> 7,00€</span></h3>
+                    <p class="descrizione">Mozzarella - Gorgonzola - Radicchio - Porcini - Speck Julienne</p>
+                  </div>
+              </div>
+
+              <div class="riga">
+                  <div class="colonna">
+                    <h3 class="titolo">25. campagna<span class="prezzo"> 6,80€</span></h3>
+                    <p class="descrizione">Mozzarella - Friarielli - Lucanica</p>
+                  </div>
+                  <div class="colonna">
+                    <h3 class="titolo">26. cestino verde<span class="prezzo"> 6,80€</span></h3>
+                    <p class="descrizione">Pomodoro - Mozzarella - Spinaci - Ricotta - Melanzane - Zucchine - Grana</p>
+                  </div>
+              </div>
+            </div>
+            <!--3 PIZZA-->
+            <div>
+              <div class="titolo-categoria">Pizze particolari</div>
+              <div class="riga">
+                  <div class="colonna">
+                    <h3 class="titolo">27. boscaiola<span class="prezzo"> 7,00€</span></h3>
+                    <p class="descrizione">Pomodoro - Mozzarella - Funghi misti - Speck Julienne - Grana</p>
+                  </div>
+                  <div class="colonna">
+                    <h3 class="titolo">28. fattoria<span class="prezzo"> 7,00€</span></h3>
+                    <p class="descrizione">Pomodoro - Mozzarella - Finferli - Lucanica - Grana</p>
+                  </div>
+                  <div class="colonna">
+                    <h3 class="titolo">29. francese<span class="prezzo"> 6,80€</span></h3>
+                    <p class="descrizione">Pomodoro - Mozzarella - Radicchio - Gorgonzola - Noci</p>
+                  </div>
+              </div>
+
+              <div class="riga">
+                  <div class="colonna">
+                    <h3 class="titolo">30. noci<span class="prezzo"> 7,00€</span></h3>
+                    <p class="descrizione">Pomodoro - Mozzarella - Radicchio - Gorgonzola - Noci</p>
+                  </div>
+                  <div class="colonna">
+                    <h3 class="titolo">31. buongustaia<span class="prezzo"> 7,00€</span></h3>
+                    <p class="descrizione">Pomodoro - Mozzarella - Radicchio - Gorgonzola - Noci</p>
+                  </div>
+                  <div class="colonna">
+                    <h3 class="titolo">32. deliziosa<span class="prezzo"> 6,80€</span></h3>
+                    <p class="descrizione">Pomodoro - Mozzarella - Stracchino - Pomodorini - Rucola</p>
+                  </div>
+              </div>
+
+              <div class="riga">
+                  <div class="colonna">
+                    <h3 class="titolo">33. genovese<span class="prezzo"> 6,80€</span></h3>
+                    <p class="descrizione">Pomodoro - Mozzarella - Gorgonzola - Olive - Pesto</p>
+                  </div>
+                  <div class="colonna">
+                    <h3 class="titolo">34. bufala<span class="prezzo"> 6,80€</span></h3>
+                    <p class="descrizione">Pomodoro - Mozzarella di Bufala - Pomodorini - Pesto</p>
+                  </div>
+                  <div class="colonna">
+                    <h3 class="titolo">35. rustica<span class="prezzo"> 7,00€</span></h3>
+                    <p class="descrizione">Pomodoro - Mozzarella - Scamorza - Speck a fette</p>
+                  </div>
+              </div>
+
+              <div class="riga">
+                  <div class="colonna">
+                    <h3 class="titolo">36. valtellina<span class="prezzo"> 7,00€</span></h3>
+                    <p class="descrizione">Pomodoro - Mozzarella - Rucola - Bresaola - Grana</p>
+                  </div>
+                  <div class="colonna">
+                    <h3 class="titolo">37. italia<span class="prezzo"> 6,00€</span></h3>
+                    <p class="descrizione">Pomodoro - Mozzarella - Spinaci - Ricotta</p>
+                  </div>
+                  <div class="colonna">
+                    <h3 class="titolo">38. trevisana<span class="prezzo"> 7,00€</span></h3>
+                    <p class="descrizione">Pomodoro - Mozzarella - Radicchio - Pancetta - Grana</p>
+                  </div>
+              </div>
+
+              <div class="riga">
+                  <div class="colonna">
+                    <h3 class="titolo">39. nordica<span class="prezzo"> 6,00€</span></h3>
+                    <p class="descrizione">Pomodoro - Mozzarella - Prosciutto - Salamino - Lucanica - W&uuml;rstel</p>
+                  </div>
+                  <div class="colonna">
+                    <h3 class="titolo">40. poderosa<span class="prezzo"> 7,00€</span></h3>
+                    <p class="descrizione">Pomodoro - Mozzarella - Salame - W&uuml;rstel - Cipolla - Peperoncino - Spezie</p>
+                  </div>
+                  <div class="colonna">
+                    <h3 class="titolo">41. n'duia<span class="prezzo"> 7,00€</span></h3>
+                    <p class="descrizione">Pomodoro - Mozzarella - Salame - N'Duia - Grana</p>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <!-- PANINO -->
+          <div class="single-item" id="categoria-panino">
+            <div>
+              <div class="titolo-categoria" style="margin-left: 130px;">Panini</div>
+              <div class="riga">
+                  <div class="colonna">
+                    <h3 class="titolo">42. napoli<span class="prezzo"> 4,40€</span></h3>
+                    <p class="descrizione">Pomodoro - Mozzarella - Pancetta - Prosciutto - Scamorza - Grana</p>
+                  </div>
+                  <div class="colonna">
+                    <h3 class="titolo">43.romano<span class="prezzo"> 4,40€</span></h3>
+                    <p class="descrizione">Pomodoro - Mozzarella - Mortadella - Prosciutto - Cipolla - Fontina</p>
+                  </div>
+                  <div class="colonna">
+                    <h3 class="titolo">44. siciliano<span class="prezzo"> 4,40€</span></h3>
+                    <p class="descrizione">Pomodoro - Mozzarella - Melanzane piccanti - Olive - Tonno</p>
+                  </div>
+              </div>
+
+              <div class="riga">
+                  <div class="colonna">
+                    <h3 class="titolo">45. trentino<span class="prezzo"> 4,40€</span></h3>
+                    <p class="descrizione">Pomodoro - Mozzarella - Crauti - Lucanica - Pancetta - W&uuml;rstel</p>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <!-- FRITTO -->
+          <div class="single-item" id="categoria-fritto">
+            <!-- 1 FRITTO -->
+            <div>
+              <div class="titolo-categoria" style="margin-left: 203px;">Friggitoria</div>
+              <div class="riga">
+                  <div class="colonna">
+                    <h3 class="titolo">46. crocchette di patate<span class="prezzo"> 2,00€</span></h3>
+                    <p class="descrizione">Preparato per crocchette con ripieno di prosciutto e mozzarella.</p>
+                  </div>
+                  <div class="colonna">
+                    <h3 class="titolo">47. Mozzarella in carrozza<span class="prezzo"> 2,80€</span></h3>
+                    <p class="descrizione">Pancarrè - Besciamella - Prosciutto - Mozzarella</p>
+                  </div>
+                  <div class="colonna">
+                    <h3 class="titolo">48. olive all'ascolana<span class="prezzo"> 2,80€</span></h3>
+                  </div>
+              </div>
+
+              <div class="riga">
+                  <div class="colonna">
+                    <h3 class="titolo">49. mozzarelle ripiene<span class="prezzo"> 2,50€</span></h3>
+                  </div>
+                  <div class="colonna">
+                    <h3 class="titolo">50. patate fritte<span class="prezzo"> 2,00€</span></h3>
+                  </div>
+                  <div class="colonna">
+                    <h3 class="titolo">51. crespelline<span class="prezzo"> 18,00€/kg</span></h3>
+                    <p class="descrizione">Ripiene di acciughe con origano o prosciutto e ricotta o rucola e ricotta</p>
+                  </div>
+              </div>
+
+              <div class="riga">
+                  <div class="colonna">
+                    <h3 class="titolo">52. Calzoncino Fritto<span class="prezzo"> 2,80€</span></h3>
+                    <p class="descrizione">Ripieno di pomodoro, mozzarella e grana</p>
+                  </div>
+                  <div class="colonna">
+                    <h3 class="titolo">53. misto fritto<span class="prezzo"> 9,00€</span></h3>
+                    <p class="descrizione">Misto dei nostri fritti</p>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <!-- BIBITE -->
+          <div class="single-item" id="categoria-bibite">
+            <div>
+              <div class="titolo-categoria" style="margin-left: 366px;">Bibite</div>
+              <div class="riga">
+                  <div class="colonna">
+                    <h3 class="titolo">bibite lattina<span class="prezzo piccola"> 1,70€</span><span class="prezzo grande">&ensp;2,20€</span></h3>
+                    <p class="descrizione">Pomodoro - Mozzarella - Pancetta - Prosciutto - Scamorza - Grana</p>
+                  </div>
+                  <div class="colonna">
+                    <h3 class="titolo">bibite bottiglia<span class="prezzo piccola"> 2,20€</span><span class="prezzo grande">&ensp;4,40€</span></h3>
+                    <p class="descrizione">Pomodoro - Mozzarella - Mortadella - Prosciutto - Cipolla - Fontina</p>
+                  </div>
+                  <div class="colonna">
+                    <h3 class="titolo">acqua<span class="prezzo"> 1,00€</span></h3>
+                    <p class="descrizione">Pomodoro - Mozzarella - Melanzane piccanti - Olive - Tonno</p>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ####################################################################-->
+    <!-- ORDINA -->
+    <div id="scrollOrdina" class="scrollMenu"></div>
+    <section id="section_ordina">
+      <div id="ordina" class="container">
+        <h3 class="titolo_pagina">ORDINA</h3>
+        <!-- JUST EAT -->
+        <div class="col-md-offset-1 col-md-4 " id="just_eat_logo">
+            <div class="ordina_images"><img data-aos="zoom-in" data-aos-offset="300" src="images/just_eat_logo.png"></div>
+            <div class="text_hover">Ordina utilizzando Just Eat</div>
+        </div>
+        <!-- SCOOTER -->
+        <div class="col-md-offset-2 col-md-4" id="scooter">
+            <div class="ordina_images"><img data-aos="zoom-in" data-aos-offset="300" src="images/scooter.svg"></div>
+            <div class="text_hover">Consegna a domicilio</div>
+      </div>
+      <div id="prova" style="display:none"></div>
+    </section>
+
+
+    <!-- ####################################################################-->
+    <!-- CITAZIONE -->
+
+    <section id="pizzaSfondo">
+      <div id="contenitore" class="parallax">
+        <div id="scuro">
+          <div id="citazione">
+            <h2>"L’amante perfetto è quello che si trasforma in pizza alle quattro del mattino."</h2>
+            <span>- Charles Pierce</span>
+          </div>
+        <div>
+      </div>
+    </section>
+    <!-- ####################################################################-->
+    <!-- INFO -->
+    <div id="scrollInfo" class="scrollMenu"></div>
+    <section id="section_info">
+      <div class="container">
+        <h3 class="titolo_pagina">INFO</h3>
+        <!-- ORARI -->
+        <div class="col-md-6">
+        </div>
+        <!-- MAP -->
+        <div class="col-md-6">
+          <div id="map" style="width:100%;height:400px;"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ####################################################################-->
+    <!-- FOOTER -->
+    <footer>
+      <div id="footer">
+        <div class="container">
+          <div id="copyright">
+            &#169; 2017 creato da Paolo Tasin
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <!-- SCRIPT -->
+  <script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.7.1/slick/slick.min.js"></script>
+<script>
+  AOS.init();
+  $('.single-item.active').slick({
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1
+  });
+</script>

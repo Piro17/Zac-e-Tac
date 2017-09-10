@@ -1,0 +1,204 @@
+body {
+
+  animation: colorchange 40s;
+  -webkit-animation: colorchange 40s; /* Chrome and Safari */
+  animation-iteration-count: infinite;
+}
+ @keyframes colorchange
+    {
+      0%   {background: #ff6c6c;}
+      25%  {background: #80cac6;}
+      50%  {background: #8090ca;}
+      75%  {background: #80ca95;}
+      95% {background: #2be5c0;}
+      100% {background: #ff6c6c;}
+    }
+    @-webkit-keyframes colorchange /* Safari and Chrome - necessary duplicate */
+    {
+       0%   {background: #ff6c6c;}
+      25%  {background: #80cac6;}
+      50%  {background: #8090ca;}
+      75%  {background: #80ca95;}
+      95% {background: #2be5c0;}
+      100% {background: #ff6c6c;}
+    }
+@keyframes ckw {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+@keyframes sun {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+
+    0% {
+        transform: rotate(0deg);
+    }
+    }
+}
+@-webkit-keyframes move-right {
+  0% {
+    -webkit-transform: translate3d(0, 0,0);
+  }
+  100% {
+    -webkit-transform: translate3d(740px, 0, 0);
+  }
+}
+@-webkit-keyframes move-left {
+  0% {
+    -webkit-transform: translate3d(0, 0,0);
+  }
+  100% {
+    -webkit-transform: translate3d(-790px, 0, 0);
+  }
+}
+@-webkit-keyframes rotate-right {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes rotate-left {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(-360deg);
+  }
+}
+@-webkit-keyframes hover {
+  0% {
+    -webkit-transform: translateY(0%);
+  }
+  50% {
+    -webkit-transform: translateY(30%);
+  }
+  100% {
+    -webkit-transform: translateY(0%);
+  }
+}
+@-webkit-keyframes hover-right {
+  0% {
+    -webkit-transform: translateY(0%);
+  }
+  30% {
+    -webkit-transform: translateX(30%);
+  }
+  50% {
+    -webkit-transform: translateX(50%);
+  }
+  70% {
+    -webkit-transform: translateX(30%);
+  }
+  98% {
+    -webkit-transform: translateY(0%);
+  }
+}
+@-webkit-keyframes hover-left {
+  0% {
+    -webkit-transform: translateY(0%);
+  }
+  30% {
+    -webkit-transform: translateX(-30%);
+  }
+  50% {
+    -webkit-transform: translateX(-50%);
+  }
+  70% {
+    -webkit-transform: translateX(-30%);
+  }
+  100% {
+    -webkit-transform: translateY(0%);
+  }
+}
+@-webkit-keyframes pull {
+  0% {
+    -webkit-transform: scaleY(1);
+  }
+  40% {
+    -webkit-transform: scaleY(1.01);
+  }
+  60% {
+    -webkit-transform: scaleY(0.99);
+  }
+  80% {
+    -webkit-transform: scaleY(1.01);
+  }
+  100% {
+    -webkit-transform: scaleY(0.99);
+  }
+  80% {
+    -webkit-transform: scaleY(1.01);
+  }
+  100% {
+    -webkit-transform: scaleY(1);
+  }
+}
+#container {
+    margin: auto 0;
+}
+#animation
+{
+  width: 100%;
+  margin: 0 auto;
+}
+#circle1 {
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-transform-origin:0px 0px;
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-animation: pull 12s linear 0s infinite;
+}
+#baloon {
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-transform-origin:200px 200px;
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-animation: hover 12s linear 0s infinite;
+}
+#s1 {
+  y: 522;
+  x: 0;
+  transform: translate(520px, 100px);
+  z-index: 10;
+  -webkit-animation: move-right 10s linear 0s infinite;
+}
+#s2 {
+  y: 540;
+  x: 800;
+  -webkit-animation: move-left 10s linear 0s infinite;
+}
+#wheel{
+  animation-name: ckw;
+  animation-duration: 15.5s;
+  animation-iteration-count: infinite;
+  transform-origin: 50% 50%;
+  display: inline-block;
+}
+#sun{
+  animation-name: sun;
+  animation-duration: 50s;
+  animation-iteration-count: infinite;
+  transform-origin: 50% 50%;
+  display: inline-block;
+}
+#cloud1 {
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-transform-origin:200px 200px;
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-animation: hover-right 12s linear 0s infinite;
+}
+#cloud2 {
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-transform-origin:200px 200px;
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-animation: hover-left 12s linear 0s infinite;
+
+
+}
